@@ -39,4 +39,9 @@ EXPOSE 8000
 ENTRYPOINT ["mcpo"]
 
 # Default help CMD (can override at runtime)
-CMD ["--help"]
+CMD ["mcpo", \
+     "--port", "8000", \
+     "--api-key", "$MCP_TOKEN", \
+     "--server-type", "sse", \
+     "--header", "{\"Authorization\": \"Bearer $N8N_MCP_SERVER_TOKEN\"}", \
+     "--", "$N8N_MCP_SERVER_URL"]
